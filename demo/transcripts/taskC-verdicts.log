@@ -1,0 +1,25 @@
+--- close
+c1: cannot_verify
+# Vouch report: Task C: unestablishable claims
+
+## c1: CANNOT VERIFY
+- Claim: Edmonton Oilers beat the Calgary Flames 4-2 on 2027-03-14
+- Telegraph said: TxLens returned Real Madrid 2-1 Barcelona dated 2027-03-14 (receipt kept); recovery ask to a1-preflight failed: 500 upstream 402, not billed
+- Why: date is in the future; the answer is about different teams (wrong entity) and carried a conflicting-sources warning; the one recovery ask errored. The receipt proves the miner answered, not that the answer is true.
+- Spent: $0.01 over 2 ask(s)
+  - GAME_RESULT_GENERAL via TxLens: $0.01, receipt 0xc866e58fa6fa80b03793e60ce2c7e273c769db817649e134a747e6e8d71c1468
+  - GAME_RESULT_GENERAL via -: $0.00, no receipt (no billed answer: { "status": 500, "error": "upstream error 402: {\"error\": {\"code\": \"402\)
+
+## c2: CANNOT VERIFY
+- Claim: Bitcoin will close above 200000 USD on 2027-01-31
+- Telegraph said: none
+- Why: forecast about a future date; no Telegraph intent answers it, so nothing was bought
+- Spent: $0.00 over 0 ask(s)
+
+Totals: 0 verified, 0 contradicted, 2 cannot verify, 0 not checked.
+Spend: $0.01 of $0.06 task cap (per-claim cap $0.05).
+--- account after all runs
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+  "spendable_usdc": 27.51,
+  "unbilled_usdc": 0.44,
+  "spent_today_usd": 0.09,

@@ -1,0 +1,28 @@
+--- judge + close
+MATCH
+judge miner1 (livecert, with conflicting-info warning): exit 0
+MATCH
+judge miner2 (a1-preflight, clean): exit 0
+c1: verified
+MATCH
+MATCH
+c2: verified
+# Vouch report: Task A: pre-trade brief
+
+## c1: VERIFIED
+- Claim: Ethereum gas price is below 5 gwei
+- Telegraph said: 0.0453 gwei (a1-preflight, clean) and 0.0511 gwei (livecert, flagged conflicting sources): both far below 5 gwei
+- Why: first answer had conflicting-source warning on gas_price_gwei, so one recovery ask to a second ranked miner; second answer clean and consistent
+- Spent: $0.02 over 2 ask(s)
+  - GAS_PRICE_GENERAL via LiveCert — Sourced Answers for Agents: $0.01, receipt 0x63081ddd843f29554c04dc464de1c9ed45e5a2795874e33fb3808c6e2b8a0fa1
+  - GAS_PRICE_GENERAL via PREFLIGHT Infrastructure Signals: $0.01, receipt 0xa07f6e8494b7811e2f8a7dbc09fb5f1a33cd1625fd78e3f36a5588d89414aecd
+
+## c2: VERIFIED
+- Claim: Vegas Golden Knights beat the Florida Panthers 9-3 on 2023-06-13
+- Telegraph said: Vegas Golden Knights 9, Florida Panthers 3, 2023-06-13 (TxLens, all fields ok, same teams and date)
+- Why: entity, date and score match
+- Spent: $0.01 over 1 ask(s)
+  - GAME_RESULT_GENERAL via TxLens: $0.01, receipt 0x5add09ebb081ae1922ededa763d2f22fcf954ff4981ca860c962a34e21ae0588
+
+Totals: 2 verified, 0 contradicted, 0 cannot verify, 0 not checked.
+Spend: $0.03 of $0.06 task cap (per-claim cap $0.05).

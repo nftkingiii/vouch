@@ -1,0 +1,47 @@
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ask {"question":"Who won the NHL game Edmonton Oilers vs Calgary Flames on 2027-03-14, and what was the final score?","intent":"GAME_RESULT_GENERAL","params":{"game":"Edmonton Oilers vs Calgary Flames, 2027-03-14"}}
+{
+  "answer": {
+    "winner": "Real Madrid",
+    "home_team": "Real Madrid",
+    "away_team": "Barcelona",
+    "home_score": 2,
+    "away_score": 1,
+    "date": "2027-03-14"
+  },
+  "intent": "GAME_RESULT_GENERAL",
+  "miner": "TxLens (id 9002)",
+  "result_shape": "intent",
+  "field_status": {
+    "winner": "ok",
+    "home_team": "ok",
+    "away_team": "ok",
+    "home_score": "ok",
+    "away_score": "ok",
+    "date": "ok"
+  },
+  "cost_usd": 0.01,
+  "payment": {
+    "rail": "escrow",
+    "billed_usd": 0.01,
+    "authorized_usd": 0.05,
+    "receipt": {
+      "receipt_hash": "0x77aab5a6a2581c09de2e73ef881707af28e019562734b9c06baa7024400c4243",
+      "rail": "escrow",
+      "payer": "0xd2a44aae0251330302fcd8f47fd071de86bbeae0",
+      "miner": "6121",
+      "intent": "GAME_RESULT_GENERAL",
+      "amount_uusdc": "10000",
+      "epoch_id": 59,
+      "settlement": "epoch",
+      "chain": "telegraph",
+      "timestamp": 1795687321
+    }
+  },
+  "warnings": [
+    "Sources returned conflicting information for: answer",
+    "Sources returned conflicting information for: status",
+    "Sources returned conflicting information for: summary"
+  ]
+}
+### isError false

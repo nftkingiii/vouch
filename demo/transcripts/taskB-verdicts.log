@@ -1,0 +1,25 @@
+--- judge + close
+MISMATCH
+home_score claimed 5 vs observed 9: exit 1
+c1: contradicted
+MISMATCH
+supply claimed 500M vs observed 1B: exit 1
+c2: contradicted
+# Vouch report: Task B: altered claims
+
+## c1: CONTRADICTED
+- Claim: Vegas Golden Knights beat the Florida Panthers 5-3 on 2023-06-13
+- Telegraph said: Vegas Golden Knights 9, Florida Panthers 3, 2023-06-13 (TxLens, all fields ok, same teams and date)
+- Why: claimed 5-3; observed 9-3 for the same game
+- Spent: $0.01 over 1 ask(s)
+  - GAME_RESULT_GENERAL via TxLens: $0.01, receipt 0xbc91ba64bcfe5eb6b465d20acfdc898d855e3ffd3db857fe537c9e4647f059ec
+
+## c2: CONTRADICTED
+- Claim: Chainlink (LINK, Ethereum) total supply is 500,000,000
+- Telegraph said: total_supply 1,000,000,000 (LiveCert, field ok; only warning: 'some additional information was omitted')
+- Why: claimed 500,000,000; observed 1,000,000,000, outside 1%
+- Spent: $0.01 over 1 ask(s)
+  - TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL via LiveCert — Sourced Answers for Agents: $0.01, receipt 0x0cd4df403fc2b31802eec1e17ef0bf71aeac1f3230cefb5fd4bdf352e7f7267b
+
+Totals: 0 verified, 2 contradicted, 0 cannot verify, 0 not checked.
+Spend: $0.02 of $0.06 task cap (per-claim cap $0.05).

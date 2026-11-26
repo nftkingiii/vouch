@@ -1,0 +1,42 @@
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ask {"question":"Final score of the NHL game Vegas Golden Knights vs Florida Panthers played on 2023-06-13 (Stanley Cup Final Game 5)?","intent":"GAME_RESULT_GENERAL","params":{"game":"Vegas Golden Knights vs Florida Panthers, 2023-06-13"}}
+{
+  "answer": {
+    "winner": "Vegas Golden Knights",
+    "home_team": "Vegas Golden Knights",
+    "away_team": "Florida Panthers",
+    "home_score": 9,
+    "away_score": 3,
+    "date": "2023-06-13"
+  },
+  "intent": "GAME_RESULT_GENERAL",
+  "miner": "TxLens (id 9002)",
+  "result_shape": "intent",
+  "field_status": {
+    "winner": "ok",
+    "home_team": "ok",
+    "away_team": "ok",
+    "home_score": "ok",
+    "away_score": "ok",
+    "date": "ok"
+  },
+  "cost_usd": 0.01,
+  "payment": {
+    "rail": "escrow",
+    "billed_usd": 0.01,
+    "authorized_usd": 0.05,
+    "receipt": {
+      "receipt_hash": "0xd4dd788b498d39d9a68c8e635729466f008a2c24688a0f529258583a1ab238f4",
+      "rail": "escrow",
+      "payer": "0xd2a44aae0251330302fcd8f47fd071de86bbeae0",
+      "miner": "6121",
+      "intent": "GAME_RESULT_GENERAL",
+      "amount_uusdc": "10000",
+      "epoch_id": 59,
+      "settlement": "epoch",
+      "chain": "telegraph",
+      "timestamp": 1795687300
+    }
+  }
+}
+### isError false

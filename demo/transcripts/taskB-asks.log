@@ -1,0 +1,109 @@
+=== TASK B: altered claims (score, token supply)
+ledger /home/USER/vouch/runs/ledger-B.json: claim cap $0.05, task cap $0.06
+claim c1 registered
+claim c2 registered
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ranking {"intent":"TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL","limit":3}
+{
+ "epoch": 59,
+ "next_ranking_in": "0s",
+ "intents": {
+  "TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL": [
+   {
+    "rank": 1,
+    "miner": "livecert",
+    "score": 0.9959,
+    "status": "active"
+   },
+   {
+    "rank": 2,
+    "miner": "vulnrank-triage",
+    "score": 0.8294,
+    "status": "active"
+   },
+   {
+    "rank": 3,
+    "miner": "chainsight-oracle",
+    "score": 0.8051,
+    "status": "active"
+   }
+  ]
+$ vouch check -> OK: $0.01 fits; claim $0.00/$0.05, task $0.00/$0.06
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ask {"question":"Final score of the NHL game Vegas Golden Knights vs Florida Panthers played on 2023-06-13?","intent":"GAME_RESULT_GENERAL","params":{"game":"Vegas Golden Knights vs Florida Panthers, 2023-06-13"}}
+{
+  "answer": {
+    "winner": "Vegas Golden Knights",
+    "home_team": "Vegas Golden Knights",
+    "away_team": "Florida Panthers",
+    "home_score": 9,
+    "away_score": 3,
+    "date": "2023-06-13"
+  },
+  "intent": "GAME_RESULT_GENERAL",
+  "miner": "TxLens (id 9002)",
+  "result_shape": "intent",
+  "field_status": {
+    "winner": "ok",
+    "home_team": "ok",
+    "away_team": "ok",
+    "home_score": "ok",
+    "away_score": "ok",
+    "date": "ok"
+  },
+  "cost_usd": 0.01,
+  "payment": {
+    "rail": "escrow",
+    "billed_usd": 0.01,
+    "authorized_usd": 0.05,
+    "receipt": {
+      "receipt_hash": "0xbc91ba64bcfe5eb6b465d20acfdc898d855e3ffd3db857fe537c9e4647f059ec",
+      "rail": "escrow",
+      "payer": "0xd2a44aae0251330302fcd8f47fd071de86bbeae0",
+      "miner": "6121",
+      "intent": "GAME_RESULT_GENERAL",
+      "amount_uusdc": "10000",
+      "epoch_id": 59,
+      "settlement": "epoch",
+      "chain": "telegraph",
+      "timestamp": 1795687700
+    }
+  }
+}
+$ vouch record -> recorded; running total $0.01 of $0.06
+$ vouch check -> OK: $0.01 fits; claim $0.00/$0.05, task $0.01/$0.06
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ask {"question":"What is the total supply of the Chainlink (LINK) token on Ethereum?","intent":"TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL","params":{"token":"LINK on ethereum (0x514910771AF9Ca656af840dff83E8264EcF986CA)"}}
+{
+  "answer": {
+    "total_supply": 1000000000
+  },
+  "intent": "TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL",
+  "miner": "LiveCert — Sourced Answers for Agents (id 4433)",
+  "result_shape": "intent",
+  "field_status": {
+    "total_supply": "ok"
+  },
+  "cost_usd": 0.01,
+  "payment": {
+    "rail": "escrow",
+    "billed_usd": 0.01,
+    "authorized_usd": 0.05,
+    "receipt": {
+      "receipt_hash": "0x0cd4df403fc2b31802eec1e17ef0bf71aeac1f3230cefb5fd4bdf352e7f7267b",
+      "rail": "escrow",
+      "payer": "0xd2a44aae0251330302fcd8f47fd071de86bbeae0",
+      "miner": "6126",
+      "intent": "TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL",
+      "amount_uusdc": "10000",
+      "epoch_id": 59,
+      "settlement": "epoch",
+      "chain": "telegraph",
+      "timestamp": 1795687705
+    }
+  },
+  "warnings": [
+    "Some additional information was omitted from this response."
+  ]
+}
+$ vouch record -> recorded; running total $0.02 of $0.06

@@ -1,0 +1,68 @@
+=== TASK C: claims no miner can establish
+ledger /home/USER/vouch/runs/ledger-C.json: claim cap $0.05, task cap $0.06
+claim c1 registered
+claim c2 registered
+c2 is a forecast: no intent can establish it. No ask, no spend.
+c2: cannot_verify
+$ vouch check -> OK: $0.01 fits; claim $0.00/$0.05, task $0.00/$0.06
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ask {"question":"Who won the NHL game Edmonton Oilers vs Calgary Flames on 2027-03-14, and what was the final score?","intent":"GAME_RESULT_GENERAL","params":{"game":"Edmonton Oilers vs Calgary Flames, 2027-03-14"}}
+{
+  "answer": {
+    "winner": "Real Madrid",
+    "home_team": "Real Madrid",
+    "away_team": "Barcelona",
+    "home_score": 2,
+    "away_score": 1,
+    "date": "2027-03-14"
+  },
+  "intent": "GAME_RESULT_GENERAL",
+  "miner": "TxLens (id 9002)",
+  "result_shape": "intent",
+  "field_status": {
+    "winner": "ok",
+    "home_team": "ok",
+    "away_team": "ok",
+    "home_score": "ok",
+    "away_score": "ok",
+    "date": "ok"
+  },
+  "cost_usd": 0.01,
+  "payment": {
+    "rail": "escrow",
+    "billed_usd": 0.01,
+    "authorized_usd": 0.05,
+    "receipt": {
+      "receipt_hash": "0xc866e58fa6fa80b03793e60ce2c7e273c769db817649e134a747e6e8d71c1468",
+      "rail": "escrow",
+      "payer": "0xd2a44aae0251330302fcd8f47fd071de86bbeae0",
+      "miner": "6121",
+      "intent": "GAME_RESULT_GENERAL",
+      "amount_uusdc": "10000",
+      "epoch_id": 60,
+      "settlement": "epoch",
+      "chain": "telegraph",
+      "timestamp": 1795702336
+    }
+  },
+  "warnings": [
+    "Sources returned conflicting information for: answer",
+    "Sources returned conflicting information for: status",
+    "Sources returned conflicting information for: summary"
+  ]
+}
+$ vouch record -> recorded; running total $0.01 of $0.06
+--- c1 recovery: answer names Real Madrid vs Barcelona (wrong entity) and the date is in the future; ask ONE other ranked miner
+$ vouch check -> OK: $0.01 fits; claim $0.01/$0.05, task $0.01/$0.06
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ask_miner {"miner":"a1-preflight","question":"Who won the NHL game Edmonton Oilers vs Calgary Flames on 2027-03-14, and what was the final score?","intent":"GAME_RESULT_GENERAL","params":{"game":"Edmonton Oilers vs Calgary Flames, 2027-03-14"}}
+{
+  "status": 500,
+  "error": "upstream error 402: {\"error\": {\"code\": \"402\", \"message\": \"Payment required\"}}",
+  "hint": "The miner or node failed. Escrow never bills a failed ask; an x402 payment is credited to escrow.",
+  "payment": {
+    "rail": "escrow",
+    "authorized_usd": 0.01
+  }
+}
+$ vouch record -> recorded; running total $0.01 of $0.06

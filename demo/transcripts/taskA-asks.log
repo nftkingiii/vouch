@@ -1,0 +1,229 @@
+=== TASK A: pre-trade brief, two claims (gas, NHL score)
+ledger /home/USER/vouch/runs/ledger-A.json: claim cap $0.05, task cap $0.06
+claim c1 registered
+claim c2 registered
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_account {}
+{
+ "address": "0xd2A44aae0251330302FCd8F47fd071de86bBEaE0",
+ "network": "eip155:11155111",
+ "usdc_token": "0xcc194e1a843B658526D0D5C431f670028582Ae17",
+ "escrow_contract": "0x72a70e949362670Bf8bceAd24eFC5b8f950aa08b",
+ "wallet_usdc": 0,
+ "wallet_eth": 0.001999999990884656,
+ "escrow": {
+  "spendable_usdc": 28.15,
+  "balance_usdc": 29.04,
+  "deposited_usdc": 35,
+  "unbilled_usdc": 0.89,
+  "pending_withdrawal_usdc": 0,
+  "withdrawal_status": "none"
+ },
+ "payment_mode": "escrow",
+ "limits": {
+  "max_per_ask_usd": 0.05,
+  "daily_usd": 0.25,
+  "spent_today_usd": 0.03,
+  "ask_budget_usd": 0.05
+ },
+ "top_up": "Asks are paid from escrow automatically. To add more, the user runs `npx -y @telegraphprotocol/telegraph-protocol-mcp fund` in a terminal and confirms the amount."
+}
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_find_intents {"search":"gas price","limit":2}
+[
+  {
+    "intent": "GAS_PRICE_GENERAL",
+    "miners": 32,
+    "description": "Query asks for the current or recent transaction fee level on a named blockchain network. Distinct from the price of that chain's token, which is CRYPTO_PRICE_USD. Example: \"What is the current gas price in Gwei on the Ethereum network?\" o…"
+  },
+  {
+    "intent": "CRYPTO_PRICE_USD",
+    "miners": 59,
+    "description": "Query names a cryptocurrency asset and asks for its CURRENT price in US dollars. Example: \"What is the current price of Ethereum (ETH) in USD?\" → CRYPTO_PRICE_USD. Not: \"How much ETH does 0x6872...de hold?\" (a balance, not a price) → WALLE…"
+  }
+]
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ranking {"intent":"GAS_PRICE_GENERAL","limit":3}
+{
+ "epoch": 59,
+ "next_ranking_in": "0s",
+ "intents": {
+  "GAS_PRICE_GENERAL": [
+   {
+    "rank": 1,
+    "miner": "livecert",
+    "score": 0.9617,
+    "status": "active"
+   },
+   {
+    "rank": 2,
+    "miner": "a1-preflight",
+    "score": 0.9228,
+    "status": "active"
+   },
+   {
+    "rank": 3,
+    "miner": "txlens",
+    "score": 0.9021,
+    "status": "active"
+   }
+  ]
+$ vouch check -> OK: $0.01 fits; claim $0.00/$0.05, task $0.00/$0.06
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ask {"question":"What is the current gas price in gwei on the Ethereum network?","intent":"GAS_PRICE_GENERAL","params":{"chain":"ethereum"}}
+{
+  "answer": {
+    "chain": "ethereum",
+    "gas_price_gwei": 0.051119022,
+    "transfer_fee_usd": 0.0018,
+    "as_of": "2026-11-26T10:06:19.096Z"
+  },
+  "intent": "GAS_PRICE_GENERAL",
+  "miner": "LiveCert — Sourced Answers for Agents (id 4433)",
+  "result_shape": "intent",
+  "field_status": {
+    "chain": "ok",
+    "gas_price_gwei": "ok",
+    "transfer_fee_usd": "ok",
+    "as_of": "ok"
+  },
+  "cost_usd": 0.01,
+  "payment": {
+    "rail": "escrow",
+    "billed_usd": 0.01,
+    "authorized_usd": 0.05,
+    "receipt": {
+      "receipt_hash": "0x63081ddd843f29554c04dc464de1c9ed45e5a2795874e33fb3808c6e2b8a0fa1",
+      "rail": "escrow",
+      "payer": "0xd2a44aae0251330302fcd8f47fd071de86bbeae0",
+      "miner": "6126",
+      "intent": "GAS_PRICE_GENERAL",
+      "amount_uusdc": "10000",
+      "epoch_id": 59,
+      "settlement": "epoch",
+      "chain": "telegraph",
+      "timestamp": 1795687581
+    }
+  },
+  "warnings": [
+    "Sources returned conflicting information for: checked_at",
+    "Sources returned conflicting information for: gas_price_gwei",
+    "Sources returned conflicting information for: reason",
+    "Sources returned conflicting information for: verdict",
+    "Sources returned conflicting information for: amount",
+    "Sources returned conflicting information for: source",
+    "Sources returned conflicting information for: status",
+    "Sources returned conflicting information for: ms",
+    "Sources returned conflicting information for: started_at"
+  ]
+}
+$ vouch record -> recorded; running total $0.01 of $0.06
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ranking {"intent":"GAME_RESULT_GENERAL","limit":3}
+{
+ "epoch": 59,
+ "next_ranking_in": "0s",
+ "intents": {
+  "GAME_RESULT_GENERAL": [
+   {
+    "rank": 1,
+    "miner": "txlens",
+    "score": 0.9981,
+    "status": "active"
+   },
+   {
+    "rank": 2,
+    "miner": "a1-preflight",
+    "score": 0.9913,
+    "status": "active"
+   },
+   {
+    "rank": 3,
+    "miner": "game-nhl-score",
+    "score": 0,
+    "status": "active"
+   }
+  ]
+$ vouch check -> OK: $0.01 fits; claim $0.00/$0.05, task $0.01/$0.06
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ask {"question":"Final score of the NHL game Vegas Golden Knights vs Florida Panthers played on 2023-06-13?","intent":"GAME_RESULT_GENERAL","params":{"game":"Vegas Golden Knights vs Florida Panthers, 2023-06-13"}}
+{
+  "answer": {
+    "winner": "Vegas Golden Knights",
+    "home_team": "Vegas Golden Knights",
+    "away_team": "Florida Panthers",
+    "home_score": 9,
+    "away_score": 3,
+    "date": "2023-06-13"
+  },
+  "intent": "GAME_RESULT_GENERAL",
+  "miner": "TxLens (id 9002)",
+  "result_shape": "intent",
+  "field_status": {
+    "winner": "ok",
+    "home_team": "ok",
+    "away_team": "ok",
+    "home_score": "ok",
+    "away_score": "ok",
+    "date": "ok"
+  },
+  "cost_usd": 0.01,
+  "payment": {
+    "rail": "escrow",
+    "billed_usd": 0.01,
+    "authorized_usd": 0.05,
+    "receipt": {
+      "receipt_hash": "0x5add09ebb081ae1922ededa763d2f22fcf954ff4981ca860c962a34e21ae0588",
+      "rail": "escrow",
+      "payer": "0xd2a44aae0251330302fcd8f47fd071de86bbeae0",
+      "miner": "6121",
+      "intent": "GAME_RESULT_GENERAL",
+      "amount_uusdc": "10000",
+      "epoch_id": 59,
+      "settlement": "epoch",
+      "chain": "telegraph",
+      "timestamp": 1795687589
+    }
+  }
+}
+$ vouch record -> recorded; running total $0.02 of $0.06
+--- c1 recovery: first answer carried 'conflicting information' on gas_price_gwei; ask ONE other ranked miner (a1-preflight, rank 2)
+$ vouch check -> OK: $0.01 fits; claim $0.01/$0.05, task $0.02/$0.06
+[telegraph-mcp] v2.3.0 on https://devnode.telegraphprotocol.com; wallet 0xd2A44aae0251330302FCd8F47fd071de86bBEaE0; payment escrow
+### CALL telegraph_ask_miner {"miner":"a1-preflight","question":"What is the current gas price in gwei on the Ethereum network?","intent":"GAS_PRICE_GENERAL","params":{"chain":"ethereum"}}
+{
+  "answer": {
+    "chain": "ethereum",
+    "gas_price_gwei": 0.045251,
+    "transfer_fee_usd": 0.0016,
+    "as_of": "2026-11-26T10:07:16.779Z"
+  },
+  "intent": "GAS_PRICE_GENERAL",
+  "miner": "PREFLIGHT Infrastructure Signals (id 20260828)",
+  "result_shape": "intent",
+  "field_status": {
+    "chain": "ok",
+    "gas_price_gwei": "ok",
+    "transfer_fee_usd": "ok",
+    "as_of": "ok"
+  },
+  "cost_usd": 0.01,
+  "payment": {
+    "rail": "escrow",
+    "billed_usd": 0.01,
+    "authorized_usd": 0.01,
+    "receipt": {
+      "receipt_hash": "0xa07f6e8494b7811e2f8a7dbc09fb5f1a33cd1625fd78e3f36a5588d89414aecd",
+      "rail": "escrow",
+      "payer": "0xd2a44aae0251330302fcd8f47fd071de86bbeae0",
+      "miner": "5311",
+      "intent": "GAS_PRICE_GENERAL",
+      "amount_uusdc": "10000",
+      "epoch_id": 59,
+      "settlement": "epoch",
+      "chain": "telegraph",
+      "timestamp": 1795687639
+    }
+  }
+}
+$ vouch record -> recorded; running total $0.03 of $0.06
